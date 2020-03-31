@@ -1,5 +1,6 @@
 <template>
     <v-app>
+        <drawer />
         <v-app-bar
             app
             clipped-left>
@@ -11,3 +12,14 @@
         </v-content>
     </v-app>
 </template>
+
+<script>
+import Drawer from './components/Drawer.vue';
+
+export default {
+    name : 'App',
+    components : {
+        Drawer,
+    },
+};
+</script>
