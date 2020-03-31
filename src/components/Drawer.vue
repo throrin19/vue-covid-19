@@ -7,13 +7,14 @@
         <v-autocomplete
             v-model="selectedCountry"
             :items="countries"
-            class="ma-3"
+            class="mx-3 mt-4"
             item-value="Slug"
             item-text="Country"
             label="Country"
             hint="Select country to see details"
             persistent-hint
-            />
+            outlined
+            dense />
 
         <v-list
             dense
@@ -118,6 +119,10 @@ export default {
     methods : {
         async getSummary() {
             const result = await get('https://api.covid19api.com/summary');
+
+            const countries = result.data.Countries;
+
+            countries.shift();
 
             this.countries = result.data.Countries;
         },

@@ -2,6 +2,7 @@
     <v-app>
         <drawer />
         <v-app-bar
+            color="primary"
             app
             clipped-left>
             <v-app-bar-nav-icon />
