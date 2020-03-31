@@ -4,11 +4,17 @@
         permanent
         clipped>
 
-        <v-list>
+        <v-list dense>
+            <v-list-item to="/">
+                <v-list-item-content>
+                    <v-list-item-title>Home</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
             <v-subheader>Top 5 new confirmed</v-subheader>
             <v-list-item
                 v-for="country in topNewConfirmed"
-                :key="country.Slug">
+                :key="`confirmed-${country.Slug}`"
+                :to="`/stats/${country.Slug}`">
                 <v-list-item-content>
                     <v-list-item-title v-text="country.Country"></v-list-item-title>
                 </v-list-item-content>
@@ -21,13 +27,12 @@
                     </v-chip>
                 </v-list-item-icon>
             </v-list-item>
-        </v-list>
 
-        <v-list>
             <v-subheader>Top 5 new death</v-subheader>
             <v-list-item
                 v-for="country in topNewDeath"
-                :key="country.Slug">
+                :key="`death-${country.Slug}`"
+                :to="`/stats/${country.Slug}`">
                 <v-list-item-content>
                     <v-list-item-title v-text="country.Country"></v-list-item-title>
                 </v-list-item-content>
@@ -39,13 +44,12 @@
                     </v-chip>
                 </v-list-item-icon>
             </v-list-item>
-        </v-list>
 
-        <v-list>
             <v-subheader>Top 5 new recovered</v-subheader>
             <v-list-item
                 v-for="country in topNewRecovered"
-                :key="country.Slug">
+                :key="`recovered-${country.Slug}`"
+                :to="`/stats/${country.Slug}`">
                 <v-list-item-content>
                     <v-list-item-title v-text="country.Country"></v-list-item-title>
                 </v-list-item-content>
