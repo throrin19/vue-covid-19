@@ -4,7 +4,20 @@
         permanent
         clipped>
 
-        <v-list dense>
+        <v-autocomplete
+            v-model="selectedCountry"
+            :items="countries"
+            class="ma-3"
+            item-value="Slug"
+            item-text="Country"
+            label="Country"
+            hint="Select country to see details"
+            persistent-hint
+            />
+
+        <v-list
+            dense
+            shaped>
             <v-list-item to="/">
                 <v-list-item-content>
                     <v-list-item-title>Home</v-list-item-title>
@@ -73,7 +86,8 @@ export default {
     name : 'Drawer',
     data() {
         return {
-            countries : [],
+            selectedCountry : null,
+            countries       : [],
         };
     },
     computed : {
@@ -91,6 +105,11 @@ export default {
             const sorted = orderBy(this.countries, ['NewRecovered'], ['desc']);
 
             return sorted.slice(0, 5);
+        },
+    },
+    watch : {
+        selectedCountry(value) {
+            this.$router.push(`/stats/${value}`);
         },
     },
     async mounted() {
