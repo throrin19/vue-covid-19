@@ -41,40 +41,6 @@
                     </v-chip>
                 </v-list-item-icon>
             </v-list-item>
-
-            <v-subheader>Top 5 new death</v-subheader>
-            <v-list-item
-                v-for="country in topNewDeath"
-                :key="`death-${country.Slug}`"
-                :to="`/stats/${country.Slug}`">
-                <v-list-item-content>
-                    <v-list-item-title v-text="country.Country"></v-list-item-title>
-                </v-list-item-content>
-                <v-list-item-icon>
-                    <v-chip
-                        color="red"
-                        x-small>
-                        +{{ country.NewDeaths }}
-                    </v-chip>
-                </v-list-item-icon>
-            </v-list-item>
-
-            <v-subheader>Top 5 new recovered</v-subheader>
-            <v-list-item
-                v-for="country in topNewRecovered"
-                :key="`recovered-${country.Slug}`"
-                :to="`/stats/${country.Slug}`">
-                <v-list-item-content>
-                    <v-list-item-title v-text="country.Country"></v-list-item-title>
-                </v-list-item-content>
-                <v-list-item-icon>
-                    <v-chip
-                        color="green"
-                        x-small>
-                        +{{ country.NewRecovered }}
-                    </v-chip>
-                </v-list-item-icon>
-            </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
