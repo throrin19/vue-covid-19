@@ -24,7 +24,7 @@
                     <v-list-item-title>Home</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
-            <v-subheader>Top 5 new confirmed</v-subheader>
+            <v-subheader>Top new confirmed</v-subheader>
             <v-list-item
                 v-for="country in topNewConfirmed"
                 :key="`confirmed-${country.Slug}`"
@@ -61,22 +61,12 @@ export default {
         topNewConfirmed() {
             const sorted = orderBy(this.countries, ['NewConfirmed'], ['desc']);
 
-            return sorted.slice(0, 5);
-        },
-        topNewDeath() {
-            const sorted = orderBy(this.countries, ['NewDeaths'], ['desc']);
-
-            return sorted.slice(0, 5);
-        },
-        topNewRecovered() {
-            const sorted = orderBy(this.countries, ['NewRecovered'], ['desc']);
-
-            return sorted.slice(0, 5);
+            return sorted.slice(0, 10);
         },
     },
     watch : {
         selectedCountry(value) {
-            this.$router.push(`/stats/${value}`);
+            this.$router.push(`/stats/${value}`).catch(() => {});
         },
     },
     async mounted() {
