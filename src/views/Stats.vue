@@ -13,5 +13,10 @@ export default {
             required    : true,
         },
     },
+    watch : {
+        country(value) {
+            console.log('change country', value);
+        },
+    },
 };
 </script>
